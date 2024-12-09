@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In / Sign Up</title>
+    <style>
+        body {
+            background-color: wheat;
+            color: #003f63;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        #options {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 2px solid #003f63;
+            border-radius: 20px;
+            box-shadow: 7px 7px 7px #003f63;
+            padding: 20px;
+            width: 80%;
+            max-width: 600px;
+            
+            background-color: wheat;
+        }
+        h2 {
+            margin: 0 20px;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        h2:hover {
+            color: #ff7f50;
+        }
+        form {
+            display: none;
+            flex-direction: column;
+            margin-top: 20px;
+            width: 100%;
+            
+        }
+        form.active {
+            display: flex;
+        }
+        label, input, select {
+            margin: 5px 0;
+            width: 100%;
+            background-color: wheat;
+            color: #003f63;
+
+        }
+        input[type="text"],
+        input[type="password"] {
+            padding: 8px;
+            border:none;
+            border-bottom: 1px solid #003f63;
+            border-radius: 5px;
+            
+        }
+        select {
+            padding: 8px;
+            border: 1px solid #003f63;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px;
+            background-color: #003f63;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #ff7f50;
+        }
+    </style>
+</head>
+<body>
+    <div id="options">
+        <h2 id="login">Log In</h2>
+        <h2 id="signup">Sign Up</h2>
+        
+        <form id="loginForm" class="active">
+            <h3>Log In Credentials</h3>
+            <label for="loginUsername">Username</label>
+            <input type="text" id="loginUsername" placeholder="Username1245">
+            <label for="loginPassword">Password</label>
+            <input type="password" id="loginPassword" placeholder="******">
+            <button type="submit">Log In</button>
+        </form>
+        
+        <form id="signupForm">
+            <h3>Sign Up Credentials</h3>
+            <label for="signupUsername">Username</label>
+            <input type="text" id="signupUsername" placeholder="Username1245">
+            <label for="signupPassword">Password</label>
+            <input type="password" id="signupPassword" placeholder="******">
+            <label for="signupConfirmPassword">Confirm Password</label>
+            <input type="password" id="signupConfirmPassword" placeholder="******">
+            <label for="userType">Interaction Type</label>
+            <select id="userType">
+                <option value="1">Customer</option>
+                <option value="2">Entrepreneur</option>
+                <option value="3">Company</option>
+            </select>
+            <label for="location">Share Location</label>
+            <input type="checkbox" id="location">
+            <button type="submit">Sign Up</button>
+        </form>
+    </div>
+
+    <script>
+        const login = document.getElementById('login');
+        const signup = document.getElementById('signup');
+        const loginForm = document.getElementById('loginForm');
+        const signupForm = document.getElementById('signupForm');
+
+        login.addEventListener('click', () => {
+            loginForm.classList.add('active');
+            signupForm.classList.remove('active');
+        });
+
+        signup.addEventListener('click', () => {
+            signupForm.classList.add('active');
+            loginForm.classList.remove('active');
+        });
+    </script>
+</body>
+</html>
